@@ -1,0 +1,77 @@
+    Finished `bench` profile [optimized] target(s) in 0.05s
+     Running benches/criterion.rs (target/release/deps/criterion-00800b9c8b2103f0)
+Gnuplot not found, using plotters backend
+Benchmarking sum_even/50000
+Benchmarking sum_even/50000: Warming up for 1.0000 s
+Benchmarking sum_even/50000: Collecting 30 samples in estimated 3.0080 s (136k iterations)
+Benchmarking sum_even/50000: Analyzing
+sum_even/50000          time:   [21.971 µs 22.025 µs 22.077 µs]
+                        thrpt:  [2.2648 Gelem/s 2.2702 Gelem/s 2.2758 Gelem/s]
+                 change:
+                        time:   [-1.7915% -1.3606% -0.9463%] (p = 0.00 < 0.05)
+                        thrpt:  [+0.9553% +1.3794% +1.8242%]
+                        Change within noise threshold.
+Found 3 outliers among 30 measurements (10.00%)
+  2 (6.67%) low mild
+  1 (3.33%) high mild
+Benchmarking sum_even/1000000
+Benchmarking sum_even/1000000: Warming up for 1.0000 s
+Benchmarking sum_even/1000000: Collecting 30 samples in estimated 3.3097 s (3720 iterations)
+Benchmarking sum_even/1000000: Analyzing
+sum_even/1000000        time:   [880.36 µs 910.44 µs 946.58 µs]
+                        thrpt:  [1.0564 Gelem/s 1.0984 Gelem/s 1.1359 Gelem/s]
+                 change:
+                        time:   [-3.5157% +1.0924% +5.9115%] (p = 0.65 > 0.05)
+                        thrpt:  [-5.5815% -1.0806% +3.6438%]
+                        No change in performance detected.
+Found 8 outliers among 30 measurements (26.67%)
+  3 (10.00%) low severe
+  5 (16.67%) high severe
+
+Benchmarking slow_fib/28
+Benchmarking slow_fib/28: Warming up for 1.0000 s
+Benchmarking slow_fib/28: Collecting 20 samples in estimated 3.0000 s (95M iterations)
+Benchmarking slow_fib/28: Analyzing
+slow_fib/28             time:   [31.636 ns 31.696 ns 31.752 ns]
+                        change: [-99.998% -99.998% -99.998%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 2 outliers among 20 measurements (10.00%)
+  1 (5.00%) low severe
+  1 (5.00%) low mild
+Benchmarking slow_fib/32
+Benchmarking slow_fib/32: Warming up for 1.0000 s
+Benchmarking slow_fib/32: Collecting 20 samples in estimated 3.0000 s (83M iterations)
+Benchmarking slow_fib/32: Analyzing
+slow_fib/32             time:   [36.094 ns 36.145 ns 36.205 ns]
+                        change: [-100.000% -100.000% -100.000%] (p = 0.00 < 0.05)
+                        Performance has improved.
+Found 1 outliers among 20 measurements (5.00%)
+  1 (5.00%) low mild
+
+Benchmarking slow_dedup/5000
+Benchmarking slow_dedup/5000: Warming up for 1.0000 s
+Benchmarking slow_dedup/5000: Collecting 20 samples in estimated 3.0110 s (47k iterations)
+Benchmarking slow_dedup/5000: Analyzing
+slow_dedup/5000         time:   [22.890 µs 23.227 µs 23.656 µs]
+                        thrpt:  [422.72 Melem/s 430.53 Melem/s 436.87 Melem/s]
+                 change:
+                        time:   [-99.858% -99.853% -99.849%] (p = 0.00 < 0.05)
+                        thrpt:  [+66267% +67926% +70111%]
+                        Performance has improved.
+Found 2 outliers among 20 measurements (10.00%)
+  1 (5.00%) low severe
+  1 (5.00%) high mild
+Benchmarking slow_dedup/20000
+Benchmarking slow_dedup/20000: Warming up for 1.0000 s
+Benchmarking slow_dedup/20000: Collecting 20 samples in estimated 3.0444 s (11k iterations)
+Benchmarking slow_dedup/20000: Analyzing
+slow_dedup/20000        time:   [93.180 µs 94.206 µs 95.100 µs]
+                        thrpt:  [420.61 Melem/s 424.60 Melem/s 429.28 Melem/s]
+                 change:
+                        time:   [-99.964% -99.963% -99.962%] (p = 0.00 < 0.05)
+                        thrpt:  [+266400% +273159% +280926%]
+                        Performance has improved.
+Found 4 outliers among 20 measurements (20.00%)
+  2 (10.00%) low severe
+  2 (10.00%) low mild
+

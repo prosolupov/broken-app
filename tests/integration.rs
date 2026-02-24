@@ -1,4 +1,4 @@
-use broken_app::{algo, leak_buffer, normalize, sum_even};
+use broken_app::{algo, concurrency, leak_buffer, normalize, sum_even};
 
 #[test]
 fn sums_even_numbers() {
@@ -30,8 +30,39 @@ fn normalize_simple() {
 }
 
 #[test]
+fn normalize_tabs_and_spaces() {
+    assert_eq!(normalize(" \tHello\t  World \n"), "helloworld");
+}
+
+#[test]
 fn averages_only_positive() {
     let nums = [-5, 5, 15];
-    // Ожидается (5 + 15) / 2 = 10, но текущая реализация делит на все элементы.
     assert!((broken_app::average_positive(&nums) - 10.0).abs() < f64::EPSILON);
+}
+
+#[test]
+fn averages_no_positive_is_zero() {
+    let nums = [-5, 0, -15];
+    assert!((broken_app::average_positive(&nums) - 0.0).abs() < f64::EPSILON);
+}
+
+#[test]
+fn sum_even_empty_slice() {
+    assert_eq!(sum_even(&[]), 0);
+}
+
+#[test]
+fn counter_is_thread_safe() {
+    let total = concurrency::race_increment(10_000, 4);
+    assert_eq!(total, 40_000);
+    assert_eq!(concurrency::read_after_sleep(), 40_000);
+    concurrency::reset_counter();
+    assert_eq!(concurrency::read_after_sleep(), 0);
+}
+
+#[test]
+fn use_after_free_regression() {
+    // Исторически здесь был UB через use-after-free.
+    let res = unsafe { broken_app::use_after_free() };
+    assert_eq!(res, 84);
 }

@@ -1,0 +1,19 @@
+   Compiling broken-app v0.1.0 (/home/dev/RustroverProjects/broken-app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.43s
+     Running tests/integration.rs (target/x86_64-unknown-linux-gnu/debug/deps/integration-1003ae19f2af62c5)
+
+running 11 tests
+test averages_no_positive_is_zero ... ok
+test averages_only_positive ... ok
+test counts_non_zero_bytes ... ok
+test fib_small_numbers ... ok
+test dedup_preserves_uniques ... ok
+test normalize_simple ... ok
+test normalize_tabs_and_spaces ... ok
+test sum_even_empty_slice ... ok
+test sums_even_numbers ... ok
+test use_after_free_regression ... ok
+test counter_is_thread_safe ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+

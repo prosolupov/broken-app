@@ -1,0 +1,93 @@
+==30139== Memcheck, a memory error detector
+==30139== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==30139== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==30139== Command: target/debug/deps/integration-449c7a54edf49612
+==30139== 
+
+running 11 tests
+test averages_no_positive_is_zero ... ok
+test averages_only_positive ... ok
+test counts_non_zero_bytes ... ok
+test dedup_preserves_uniques ... ok
+test fib_small_numbers ... ok
+test normalize_simple ... ok
+test normalize_tabs_and_spaces ... ok
+test sum_even_empty_slice ... ok
+test sums_even_numbers ... ok
+test counter_is_thread_safe ... ok
+test use_after_free_regression ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+==30139== 
+==30139== HEAP SUMMARY:
+==30139==     in use at exit: 592 bytes in 2 blocks
+==30139==   total heap usage: 514 allocs, 512 frees, 71,237 bytes allocated
+==30139== 
+==30139== 48 bytes in 1 blocks are possibly lost in loss record 1 of 2
+==30139==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30139==    by 0x1AC10B: alloc (unix.rs:14)
+==30139==    by 0x1AC10B: alloc_impl (alloc.rs:151)
+==30139==    by 0x1AC10B: allocate (alloc.rs:214)
+==30139==    by 0x1AC10B: {closure#0}<std::thread::thread::Inner, std::alloc::System> (sync.rs:805)
+==30139==    by 0x1AC10B: allocate_for_layout<core::mem::maybe_uninit::MaybeUninit<std::thread::thread::Inner>, alloc::sync::{impl#17}::new_uninit_in::{closure_env#0}<std::thread::thread::Inner, std::alloc::System>, fn(*mut u8) -> *mut alloc::sync::ArcInner<core::mem::maybe_uninit::MaybeUninit<std::thread::thread::Inner>>> (sync.rs:2162)
+==30139==    by 0x1AC10B: new_uninit_in<std::thread::thread::Inner, std::alloc::System> (sync.rs:803)
+==30139==    by 0x1AC10B: std::thread::thread::Thread::new (thread.rs:102)
+==30139==    by 0x1AC37F: std::thread::current::init_current (current.rs:294)
+==30139==    by 0x1AB525: current_or_unnamed (current.rs:251)
+==30139==    by 0x1AB525: std::sync::mpmc::context::Context::new (context.rs:72)
+==30139==    by 0x153A4A: __rust_std_internal_init_fn (context.rs:43)
+==30139==    by 0x153A4A: call_once<fn() -> core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>, ()> (function.rs:250)
+==30139==    by 0x153A4A: unwrap_or_else<core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>, fn() -> core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>> (option.rs:1067)
+==30139==    by 0x153A4A: std::sys::thread_local::native::lazy::Storage<T,D>::get_or_init_slow (lazy.rs:80)
+==30139==    by 0x155152: get_or_init<core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>, (), fn() -> core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>> (lazy.rs:62)
+==30139==    by 0x155152: {closure#0} (mod.rs:97)
+==30139==    by 0x155152: call_once<std::sync::mpmc::context::{impl#0}::with::CONTEXT::{constant#0}::{closure_env#0}, (core::option::Option<&mut core::option::Option<core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>>>)> (function.rs:250)
+==30139==    by 0x155152: try_with<core::cell::Cell<core::option::Option<std::sync::mpmc::context::Context>>, std::sync::mpmc::context::{impl#0}::with::{closure_env#1}<std::sync::mpmc::list::{impl#3}::recv::{closure_env#1}<test::event::CompletedTest>, ()>, ()> (local.rs:512)
+==30139==    by 0x155152: with<std::sync::mpmc::list::{impl#3}::recv::{closure_env#1}<test::event::CompletedTest>, ()> (context.rs:53)
+==30139==    by 0x155152: std::sync::mpmc::list::Channel<T>::recv (list.rs:442)
+==30139==    by 0x172280: recv_deadline<test::event::CompletedTest> (mod.rs:1119)
+==30139==    by 0x172280: recv_timeout<test::event::CompletedTest> (mod.rs:1051)
+==30139==    by 0x172280: recv_timeout<test::event::CompletedTest> (mpsc.rs:909)
+==30139==    by 0x172280: run_tests<test::console::run_tests_console::{closure_env#2}> (lib.rs:456)
+==30139==    by 0x172280: test::console::run_tests_console (console.rs:327)
+==30139==    by 0x17AC38: test_main_with_exit_callback<test::test_main::{closure_env#0}> (lib.rs:160)
+==30139==    by 0x17AC38: test::test_main (lib.rs:101)
+==30139==    by 0x165BBA: test::test_main_static (lib.rs:183)
+==30139==    by 0x146182: integration::main (integration.rs:0)
+==30139==    by 0x1451CA: core::ops::function::FnOnce::call_once (function.rs:250)
+==30139==    by 0x146C6D: std::sys::backtrace::__rust_begin_short_backtrace (backtrace.rs:160)
+==30139== 
+==30139== 544 bytes in 1 blocks are still reachable in loss record 2 of 2
+==30139==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==30139==    by 0x1A271C: alloc (alloc.rs:95)
+==30139==    by 0x1A271C: alloc_impl (alloc.rs:190)
+==30139==    by 0x1A271C: allocate (alloc.rs:251)
+==30139==    by 0x1A271C: try_new_uninit_in<alloc::collections::btree::node::LeafNode<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo>, alloc::alloc::Global> (boxed.rs:582)
+==30139==    by 0x1A271C: new_uninit_in<alloc::collections::btree::node::LeafNode<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo>, alloc::alloc::Global> (boxed.rs:549)
+==30139==    by 0x1A271C: new<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (node.rs:87)
+==30139==    by 0x1A271C: new_leaf<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (node.rs:225)
+==30139==    by 0x1A271C: insert_entry<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (entry.rs:403)
+==30139==    by 0x1A271C: insert<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (entry.rs:377)
+==30139==    by 0x1A271C: insert<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (map.rs:1053)
+==30139==    by 0x1A271C: std::sys::pal::unix::stack_overflow::thread_info::set_current_info (thread_info.rs:122)
+==30139==    by 0x1A02BE: init (stack_overflow.rs:179)
+==30139==    by 0x1A02BE: init (mod.rs:42)
+==30139==    by 0x1A02BE: init (rt.rs:118)
+==30139==    by 0x1A02BE: {closure#0} (rt.rs:173)
+==30139==    by 0x1A02BE: do_call<std::rt::lang_start_internal::{closure_env#0}, isize> (panicking.rs:581)
+==30139==    by 0x1A02BE: catch_unwind<isize, std::rt::lang_start_internal::{closure_env#0}> (panicking.rs:544)
+==30139==    by 0x1A02BE: catch_unwind<std::rt::lang_start_internal::{closure_env#0}, isize> (panic.rs:359)
+==30139==    by 0x1A02BE: std::rt::lang_start_internal (rt.rs:171)
+==30139==    by 0x146A16: std::rt::lang_start (rt.rs:205)
+==30139==    by 0x1461AD: main (in /home/dev/RustroverProjects/broken-app/target/debug/deps/integration-449c7a54edf49612)
+==30139== 
+==30139== LEAK SUMMARY:
+==30139==    definitely lost: 0 bytes in 0 blocks
+==30139==    indirectly lost: 0 bytes in 0 blocks
+==30139==      possibly lost: 48 bytes in 1 blocks
+==30139==    still reachable: 544 bytes in 1 blocks
+==30139==         suppressed: 0 bytes in 0 blocks
+==30139== 
+==30139== For lists of detected and suppressed errors, rerun with: -s
+==30139== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)

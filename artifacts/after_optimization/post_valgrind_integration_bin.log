@@ -1,0 +1,59 @@
+==51475== Memcheck, a memory error detector
+==51475== Copyright (C) 2002-2022, and GNU GPL'd, by Julian Seward et al.
+==51475== Using Valgrind-3.22.0 and LibVEX; rerun with -h for copyright info
+==51475== Command: target/debug/deps/integration-449c7a54edf49612
+==51475== 
+
+running 11 tests
+test averages_only_positive ... ok
+test counts_non_zero_bytes ... ok
+test averages_no_positive_is_zero ... ok
+test dedup_preserves_uniques ... ok
+test fib_small_numbers ... ok
+test normalize_simple ... ok
+test counter_is_thread_safe ... ok
+test normalize_tabs_and_spaces ... ok
+test sum_even_empty_slice ... ok
+test sums_even_numbers ... ok
+test use_after_free_regression ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+
+==51475== 
+==51475== HEAP SUMMARY:
+==51475==     in use at exit: 544 bytes in 1 blocks
+==51475==   total heap usage: 510 allocs, 509 frees, 71,029 bytes allocated
+==51475== 
+==51475== 544 bytes in 1 blocks are still reachable in loss record 1 of 1
+==51475==    at 0x4846828: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==51475==    by 0x1A2CFC: alloc (alloc.rs:95)
+==51475==    by 0x1A2CFC: alloc_impl (alloc.rs:190)
+==51475==    by 0x1A2CFC: allocate (alloc.rs:251)
+==51475==    by 0x1A2CFC: try_new_uninit_in<alloc::collections::btree::node::LeafNode<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo>, alloc::alloc::Global> (boxed.rs:582)
+==51475==    by 0x1A2CFC: new_uninit_in<alloc::collections::btree::node::LeafNode<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo>, alloc::alloc::Global> (boxed.rs:549)
+==51475==    by 0x1A2CFC: new<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (node.rs:87)
+==51475==    by 0x1A2CFC: new_leaf<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (node.rs:225)
+==51475==    by 0x1A2CFC: insert_entry<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (entry.rs:403)
+==51475==    by 0x1A2CFC: insert<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (entry.rs:377)
+==51475==    by 0x1A2CFC: insert<usize, std::sys::pal::unix::stack_overflow::thread_info::ThreadInfo, alloc::alloc::Global> (map.rs:1053)
+==51475==    by 0x1A2CFC: std::sys::pal::unix::stack_overflow::thread_info::set_current_info (thread_info.rs:122)
+==51475==    by 0x1A089E: init (stack_overflow.rs:179)
+==51475==    by 0x1A089E: init (mod.rs:42)
+==51475==    by 0x1A089E: init (rt.rs:118)
+==51475==    by 0x1A089E: {closure#0} (rt.rs:173)
+==51475==    by 0x1A089E: do_call<std::rt::lang_start_internal::{closure_env#0}, isize> (panicking.rs:581)
+==51475==    by 0x1A089E: catch_unwind<isize, std::rt::lang_start_internal::{closure_env#0}> (panicking.rs:544)
+==51475==    by 0x1A089E: catch_unwind<std::rt::lang_start_internal::{closure_env#0}, isize> (panic.rs:359)
+==51475==    by 0x1A089E: std::rt::lang_start_internal (rt.rs:171)
+==51475==    by 0x146C56: std::rt::lang_start (rt.rs:205)
+==51475==    by 0x1463ED: main (in /home/dev/RustroverProjects/broken-app/target/debug/deps/integration-449c7a54edf49612)
+==51475== 
+==51475== LEAK SUMMARY:
+==51475==    definitely lost: 0 bytes in 0 blocks
+==51475==    indirectly lost: 0 bytes in 0 blocks
+==51475==      possibly lost: 0 bytes in 0 blocks
+==51475==    still reachable: 544 bytes in 1 blocks
+==51475==         suppressed: 0 bytes in 0 blocks
+==51475== 
+==51475== For lists of detected and suppressed errors, rerun with: -s
+==51475== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

@@ -1,0 +1,309 @@
+# To display the perf.data header info, please use --header/--header-only options.
+#
+#
+# Total Lost Samples: 0
+#
+# Samples: 87  of event 'cycles:P'
+# Event count (approx.): 221215427
+#
+# Overhead  Command          Shared Object              Symbol                                    IPC   [IPC Coverage]
+# ........  ...............  .........................  ........................................  ....................
+#
+    38.13%  baseline-ff05fc  baseline-ff05fc79cb85d481  [.] broken_app::algo::slow_fib            -      -            
+            |
+            ---broken_app::algo::slow_fib
+               |          
+               |--17.81%--0x5baf6fe2476f
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          |          
+               |          |--14.26%--broken_app::algo::slow_fib
+               |          |          |          
+               |          |          |--11.91%--broken_app::algo::slow_fib
+               |          |          |          |          
+               |          |          |          |--9.63%--broken_app::algo::slow_fib
+               |          |          |          |          |          
+               |          |          |          |          |--7.19%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          
+               |          |          |          |          |          |--4.70%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |--2.45%--baseline::main
+               |          |          |          |          |          |          |          std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |          |          std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |          |          std::rt::lang_start_internal
+               |          |          |          |          |          |          |          main
+               |          |          |          |          |          |          |          __libc_start_call_main
+               |          |          |          |          |          |          |          __libc_start_main_impl (inlined)
+               |          |          |          |          |          |          |          _start
+               |          |          |          |          |          |          |          
+               |          |          |          |          |          |           --2.24%--broken_app::algo::slow_fib
+               |          |          |          |          |          |                     |          
+               |          |          |          |          |          |                     |--1.26%--baseline::main
+               |          |          |          |          |          |                     |          std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |                     |          std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |                     |          std::rt::lang_start_internal
+               |          |          |          |          |          |                     |          main
+               |          |          |          |          |          |                     |          __libc_start_call_main
+               |          |          |          |          |          |                     |          __libc_start_main_impl (inlined)
+               |          |          |          |          |          |                     |          _start
+               |          |          |          |          |          |                     |          
+               |          |          |          |          |          |                      --0.98%--broken_app::algo::slow_fib
+               |          |          |          |          |          |                                baseline::main
+               |          |          |          |          |          |                                std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |                                std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |                                std::rt::lang_start_internal
+               |          |          |          |          |          |                                main
+               |          |          |          |          |          |                                __libc_start_call_main
+               |          |          |          |          |          |                                __libc_start_main_impl (inlined)
+               |          |          |          |          |          |                                _start
+               |          |          |          |          |          |          
+               |          |          |          |          |           --2.49%--baseline::main
+               |          |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |          |                     main
+               |          |          |          |          |                     __libc_start_call_main
+               |          |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |          |                     _start
+               |          |          |          |          |          
+               |          |          |          |           --2.45%--baseline::main
+               |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |                     main
+               |          |          |          |                     __libc_start_call_main
+               |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |                     _start
+               |          |          |          |          
+               |          |          |           --2.27%--baseline::main
+               |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |                     std::rt::lang_start_internal
+               |          |          |                     main
+               |          |          |                     __libc_start_call_main
+               |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |                     _start
+               |          |          |          
+               |          |           --2.35%--baseline::main
+               |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |                     std::rt::lang_start_internal
+               |          |                     main
+               |          |                     __libc_start_call_main
+               |          |                     __libc_start_main_impl (inlined)
+               |          |                     _start
+               |          |          
+               |           --3.56%--baseline::main
+               |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |                     std::rt::lang_start_internal
+               |                     main
+               |                     __libc_start_call_main
+               |                     __libc_start_main_impl (inlined)
+               |                     _start
+               |          
+               |--16.91%--broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          broken_app::algo::slow_fib
+               |          |          
+               |          |--13.50%--broken_app::algo::slow_fib
+               |          |          |          
+               |          |          |--11.04%--broken_app::algo::slow_fib
+               |          |          |          |          
+               |          |          |          |--7.71%--broken_app::algo::slow_fib
+               |          |          |          |          |          
+               |          |          |          |          |--6.45%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          
+               |          |          |          |          |          |--4.04%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |--3.03%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |          |--1.89%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |          |          |--1.07%--baseline::main
+               |          |          |          |          |          |          |          |          |          std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |          |          |          |          std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |          |          |          |          std::rt::lang_start_internal
+               |          |          |          |          |          |          |          |          |          main
+               |          |          |          |          |          |          |          |          |          __libc_start_call_main
+               |          |          |          |          |          |          |          |          |          __libc_start_main_impl (inlined)
+               |          |          |          |          |          |          |          |          |          _start
+               |          |          |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |          |           --0.82%--broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          |                     broken_app::algo::slow_fib
+               |          |          |          |          |          |          |          |                     baseline::main
+               |          |          |          |          |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |          |          |          |          |                     main
+               |          |          |          |          |          |          |          |                     __libc_start_call_main
+               |          |          |          |          |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |          |          |          |          |                     _start
+               |          |          |          |          |          |          |          |          
+               |          |          |          |          |          |          |           --1.14%--baseline::main
+               |          |          |          |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |          |          |          |                     main
+               |          |          |          |          |          |          |                     __libc_start_call_main
+               |          |          |          |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |          |          |          |                     _start
+               |          |          |          |          |          |          |          
+               |          |          |          |          |          |           --1.01%--baseline::main
+               |          |          |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |          |          |                     main
+               |          |          |          |          |          |                     __libc_start_call_main
+               |          |          |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |          |          |                     _start
+               |          |          |          |          |          |          
+               |          |          |          |          |           --2.41%--baseline::main
+               |          |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |          |                     main
+               |          |          |          |          |                     __libc_start_call_main
+               |          |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |          |                     _start
+               |          |          |          |          |          
+               |          |          |          |           --1.25%--baseline::main
+               |          |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |          |                     std::rt::lang_start_internal
+               |          |          |          |                     main
+               |          |          |          |                     __libc_start_call_main
+               |          |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |          |                     _start
+               |          |          |          |          
+               |          |          |           --3.33%--baseline::main
+               |          |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |          |                     std::rt::lang_start_internal
+               |          |          |                     main
+               |          |          |                     __libc_start_call_main
+               |          |          |                     __libc_start_main_impl (inlined)
+               |          |          |                     _start
+               |          |          |          
+               |          |           --2.46%--baseline::main
+               |          |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |          |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |          |                     std::rt::lang_start_internal
+               |          |                     main
+               |          |                     __libc_start_call_main
+               |          |                     __libc_start_main_impl (inlined)
+               |          |                     _start
+               |          |          
+               |           --3.41%--baseline::main
+               |                     std::sys::backtrace::__rust_begin_short_backtrace
+               |                     std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               |                     std::rt::lang_start_internal
+               |                     main
+               |                     __libc_start_call_main
+               |                     __libc_start_main_impl (inlined)
+               |                     _start
+               |          
+               |--2.17%--0x4
+               |          
+                --1.23%--0x3
+
+    35.34%  baseline-ff05fc  baseline-ff05fc79cb85d481  [.] broken_app::algo::slow_dedup          -      -            
+            |
+            ---broken_app::algo::slow_dedup
+               baseline::main
+               std::sys::backtrace::__rust_begin_short_backtrace
+               std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               std::rt::lang_start_internal
+               main
+               __libc_start_call_main
+               __libc_start_main_impl (inlined)
+               _start
+
+    22.73%  baseline-ff05fc  baseline-ff05fc79cb85d481  [.] core::slice::sort::unstable::ipnsort  -      -            
+            |
+            ---core::slice::sort::unstable::ipnsort
+               broken_app::algo::slow_dedup
+               baseline::main
+               std::sys::backtrace::__rust_begin_short_backtrace
+               std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               std::rt::lang_start_internal
+               main
+               __libc_start_call_main
+               __libc_start_main_impl (inlined)
+               _start
+
+     1.17%  baseline-ff05fc  [unknown]                  [k] 0xffffffffa05a476a                    -      -            
+            |
+            ---0xffffffffa05a476e
+               0xffffffffa05a7f4c
+               0xffffffffa03668a2
+               0xffffffffa040c469
+               0xffffffffa0424ed8
+               0xffffffffa04253f8
+               0xffffffffa040d592
+               0xffffffffa040e3b6
+               0xffffffffa02ad2c1
+               0xffffffffa144da8b
+               0xffffffffa1600f4b
+               core::slice::sort::unstable::ipnsort
+               broken_app::algo::slow_dedup
+               baseline::main
+               std::sys::backtrace::__rust_begin_short_backtrace
+               std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               std::rt::lang_start_internal
+               main
+               __libc_start_call_main
+               __libc_start_main_impl (inlined)
+               _start
+
+     1.16%  baseline-ff05fc  baseline-ff05fc79cb85d481  [.] broken_app::sum_even                  -      -            
+            |
+            ---broken_app::sum_even
+               baseline::main
+               std::sys::backtrace::__rust_begin_short_backtrace
+               std::rt::lang_start::_$u7b$$u7b$closure$u7d$$u7d$::hb10505e8bc9de8da
+               std::rt::lang_start_internal
+               main
+               __libc_start_call_main
+               __libc_start_main_impl (inlined)
+               _start
+
+     0.63%  baseline-ff05fc  [unknown]                  [k] 0xffffffffa16011f3                    -      -            
+            |
+            ---0xffffffffa16011f5
+
+     0.60%  baseline-ff05fc  [unknown]                  [k] 0xffffffffa05c6064                    -      -            
+            |
+            ---0xffffffffa05c6067
+               0xffffffffa05c656c
+               0xffffffffa062a6ba
+               0xffffffffa062aa10
+               0xffffffffa062f824
+               0xffffffffa062ff44
+               0xffffffffa063021a
+               0xffffffffa02d7f29
+               0xffffffffa144e923
+               0xffffffffa1600bc7
+
+     0.23%  baseline-ff05fc  ld-linux-x86-64.so.2       [.] _dl_relocate_object                   -      -            
+
+
+#
+# (Cannot load tips.txt file, please install perf!)
+#
